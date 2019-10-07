@@ -9,7 +9,6 @@ const matchEmail = document.getElementById('matchEmail');
 const matchPassword = document.getElementById('matchPassword');
 const confirmPassword = document.getElementById('confirmPassword');
 const signupbutton = document.querySelector('signupbutton');
-let valid = true;
 
 function validateFunction() {
   
@@ -20,56 +19,45 @@ function validateFunction() {
     if (name.value === "" || name.value == null) {
         matchName.className = "wrongInput";
         matchName.innerHTML = "Username can't be blank";
-        valid = false;
+        return false;
     }
     else {
         document.getElementById("matchName").style.display = "none";
-        valid = true;
     }
     
     if (emailFormat.test(email.value) == false) {
         matchEmail.className = "wrongInput";
         matchEmail.innerHTML = "Incorrect email format";
-        valid = false;
+        return false;
     }
 
     else {
         document.getElementById("matchEmail").style.display = "none";
-        valid = true;
     }
 
     if (passwordFormat.test(psw.value) == false) {
         matchPassword.className = "wrongInput";
         matchPassword.innerHTML = "password should be between 7 to 14  characters, and first character must be a letter ";
-        valid = false;
+        return false;
     }
 
     else {
         document.getElementById("matchPassword").style.display = "none";
-        valid = true;
+        
     }
 
     if (psw2.value != psw.value) {
         
         confirmPassword.className = "wrongInput" 
         confirmPassword.innerHTML = "password does not match"
-        valid = false;
+        return false;
        
     }
     else {
         document.getElementById("confirmPassword").style.display = "none";
-        valid = true;
     }
-    
+    return this;    
 }
 
-function submitForm() {
-    signupbutton.addEventListener(submit, function() {
-        if (valid = true) {
-            return true;
-        }
-        return false;
-    })
-}
 
 

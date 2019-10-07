@@ -30,9 +30,8 @@
                 
                 <h1> Sign up as a student </h1>
             
-                <form action="student_login.html" method="POST" id= "signupForm">
+                <form action="student_login.html" method="POST" id= "signupForm" onsubmit="return validateFunction(this)">
                    
-    
                       <label for="name"></label>
                       <input type="text" id="name" placeholder="Full name" name= "name" required>
                       <p id="matchName" class="error"></p>
